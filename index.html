@@ -2,19 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Subtitle Dataset Analysis (Sign Language AI)</title>
+    <title>Subtitle Dataset Analysis</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: #f0f2f5; color: #1c1e21; }
-        h1 { text-align: center; margin-bottom: 40px; }
-        .dashboard { display: grid; grid-template-columns: 1fr; gap: 30px; max-width: 1400px; margin: auto; }
+        h1, h2 { text-align: center; }
+        h2 { margin-top: 50px; margin-bottom: 30px; color: #333; border-bottom: 2px solid #ccc; padding-bottom: 10px; max-width: 1400px; margin-left: auto; margin-right: auto; }
+        .dashboard { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1400px; margin: auto; }
+        .full-width { grid-column: span 2; }
         .card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-        iframe { width: 100%; height: 500px; border: none; border-radius: 8px; }
-        .map-card iframe { height: 750px; } 
-        .wpm-card iframe { height: 750px; }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .card-header h3 { margin: 0; font-size: 1.2rem; }
+        iframe { width: 100%; height: 450px; border: none; border-radius: 8px; }
+        .map-card iframe { height: 700px; } 
+        .wpm-card iframe { height: 500px; }
+        .wpm-card-tall iframe { height: 750px; }
         .download-btn { display: inline-block; padding: 10px 15px; margin-bottom: 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; }
         .download-btn:hover { background-color: #0056b3; }
-        .pdf-link { font-size: 14px; color: #dc3545; text-decoration: none; font-weight: bold; }
-        .pdf-link:hover { text-decoration: underline; }
+        .pdf-link { font-size: 13px; color: #dc3545; text-decoration: none; font-weight: bold; background: #ffebeb; padding: 5px 10px; border-radius: 4px;}
+        .pdf-link:hover { background: #ffc2c2; }
+        
+        @media (max-width: 1024px) {
+            .dashboard { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+        }
     </style>
 </head>
 <body>
@@ -25,13 +35,96 @@
         <a href="table_2_broadcaster_means.csv" class="download-btn">⬇️ Download Averages by TV (CSV)</a>
     </div>
 
-    <div class="dashboard">
-        <div class="card map-card"><h2>1. Topic Map (NLP Clustering)</h2><a href="1_topic_map.pdf" target="_blank" class="pdf-link">[Download PDF Chart]</a><iframe src="1_topic_map.html"></iframe></div>
-        <div class="card wpm-card"><h2>2. Speech Rate (WPM)</h2><a href="2_speech_rate_wpm.pdf" target="_blank" class="pdf-link">[Download PDF Chart]</a><iframe src="2_speech_rate_wpm.html"></iframe></div>
-        <div class="card"><h2>3. Visual Accessibility: Text Density (CPS)</h2><a href="3_visual_density_cps.pdf" target="_blank" class="pdf-link">[Download PDF Chart]</a><iframe src="3_visual_density_cps.html"></iframe></div>
-        <div class="card"><h2>4. Fingerspelling: Proper Nouns & Acronyms</h2><a href="4_fingerspelling.pdf" target="_blank" class="pdf-link">[Download PDF Chart]</a><iframe src="4_fingerspelling.html"></iframe></div>
-        <div class="card"><h2>5. Vocabulary Diversity (AI Dictionary Size)</h2><a href="5_vocabulary.pdf" target="_blank" class="pdf-link">[Download PDF Chart]</a><iframe src="5_vocabulary.html"></iframe></div>
-        <div class="card"><h2>6. Distribution of Files Duration</h2><a href="6_duration.pdf" target="_blank" class="pdf-link">[Download PDF Chart]</a><iframe src="6_duration.html"></iframe></div>
+    <!-- NLP TOPIC MAP -->
+    <div class="dashboard" style="display: block;">
+        <div class="card map-card" style="margin-bottom: 20px;">
+            <div class="card-header">
+                <h3>1. Topic Map (NLP Clustering)</h3>
+                <a href="1_topic_map.pdf" target="_blank" class="pdf-link">📥 PDF</a>
+            </div>
+            <iframe src="1_topic_map.html"></iframe>
+        </div>
     </div>
+
+    <!-- SECTION A: OVERALL STATISTICS -->
+    <h2>🌍 Secțiunea A: Statistici Generale (Întregul Set de Date)</h2>
+    <div class="dashboard">
+        <div class="card wpm-card full-width">
+            <div class="card-header">
+                <h3>Speech Rate (WPM) - Overall</h3>
+                <a href="2_speech_rate_wpm_general.pdf" target="_blank" class="pdf-link">📥 PDF</a>
+            </div>
+            <iframe src="2_speech_rate_wpm_general.html"></iframe>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Visual Density (CPS)</h3>
+                <a href="3_visual_density_cps_general.pdf" target="_blank" class="pdf-link">📥 PDF</a>
+            </div>
+            <iframe src="3_visual_density_cps_general.html"></iframe>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Fingerspelling Load (%)</h3>
+                <a href="4_fingerspelling_general.pdf" target="_blank" class="pdf-link">📥 PDF</a>
+            </div>
+            <iframe src="4_fingerspelling_general.html"></iframe>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Vocabulary Diversity</h3>
+                <a href="5_vocabulary_general.pdf" target="_blank" class="pdf-link">📥 PDF</a>
+            </div>
+            <iframe src="5_vocabulary_general.html"></iframe>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>News Duration (Minutes)</h3>
+                <a href="6_duration_general.pdf" target="_blank" class="pdf-link">📥 PDF</a>
+            </div>
+            <iframe src="6_duration_general.html"></iframe>
+        </div>
+    </div>
+
+    <!-- SECTION B: BROADCASTER COMPARISON -->
+    <h2>📺 Secțiunea B: Comparație pe Posturi TV</h2>
+    <div class="dashboard">
+        <div class="card wpm-card-tall full-width">
+            <div class="card-header">
+                <h3>Speech Rate (WPM) - By Broadcaster</h3>
+                <a href="2_speech_rate_wpm.pdf" target="_blank" class="pdf-link">📥 PDF</a>
+            </div>
+            <iframe src="2_speech_rate_wpm.html"></iframe>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Visual Density (CPS)</h3>
+                <a href="3_visual_density_cps.pdf" target="_blank" class="pdf-link">📥 PDF</a>
+            </div>
+            <iframe src="3_visual_density_cps.html"></iframe>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Fingerspelling Load (%)</h3>
+                <a href="4_fingerspelling.pdf" target="_blank" class="pdf-link">📥 PDF</a>
+            </div>
+            <iframe src="4_fingerspelling.html"></iframe>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Vocabulary Diversity</h3>
+                <a href="5_vocabulary.pdf" target="_blank" class="pdf-link">📥 PDF</a>
+            </div>
+            <iframe src="5_vocabulary.html"></iframe>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>News Duration (Minutes)</h3>
+                <a href="6_duration.pdf" target="_blank" class="pdf-link">📥 PDF</a>
+            </div>
+            <iframe src="6_duration.html"></iframe>
+        </div>
+    </div>
+
 </body>
 </html>
