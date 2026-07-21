@@ -16,10 +16,6 @@
         .map-card iframe { height: 700px; } 
         .wpm-card iframe { height: 500px; }
         .wpm-card-tall iframe { height: 750px; }
-        .download-btn { display: inline-block; padding: 10px 15px; margin-bottom: 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; }
-        .download-btn:hover { background-color: #0056b3; }
-        .pdf-link { font-size: 13px; color: #dc3545; text-decoration: none; font-weight: bold; background: #ffebeb; padding: 5px 10px; border-radius: 4px;}
-        .pdf-link:hover { background: #ffc2c2; }
         
         @media (max-width: 1024px) {
             .dashboard { grid-template-columns: 1fr; }
@@ -30,99 +26,128 @@
 <body>
     <h1>📊 Dataset Analysis Dashboard - Machine Learning & Accessibility</h1>
     
-    <div style="text-align: center; margin-bottom: 20px;">
-        <a href="table_1_complete_dataset.csv" class="download-btn">⬇️ Download Complete Dataset (CSV)</a>
-        <a href="table_2_broadcaster_means.csv" class="download-btn">⬇️ Download Averages by TV (CSV)</a>
-    </div>
-
     <!-- NLP TOPIC MAP -->
     <div class="dashboard" style="display: block;">
         <div class="card map-card" style="margin-bottom: 20px;">
             <div class="card-header">
                 <h3>1. Topic Map (NLP Clustering)</h3>
-                <a href="1_topic_map.pdf" target="_blank" class="pdf-link">📥 PDF</a>
             </div>
             <iframe src="1_topic_map.html"></iframe>
         </div>
     </div>
 
     <!-- SECTION A: OVERALL STATISTICS -->
-    <h2>🌍 Secțiunea A: Statistici Generale (Întregul Set de Date)</h2>
+    <h2>🌍 Section A: Overall Statistics (Full Dataset)</h2>
     <div class="dashboard">
         <div class="card wpm-card full-width">
             <div class="card-header">
                 <h3>Speech Rate (WPM) - Overall</h3>
-                <a href="2_speech_rate_wpm_general.pdf" target="_blank" class="pdf-link">📥 PDF</a>
             </div>
             <iframe src="2_speech_rate_wpm_general.html"></iframe>
         </div>
         <div class="card">
             <div class="card-header">
                 <h3>Visual Density (CPS)</h3>
-                <a href="3_visual_density_cps_general.pdf" target="_blank" class="pdf-link">📥 PDF</a>
             </div>
             <iframe src="3_visual_density_cps_general.html"></iframe>
         </div>
         <div class="card">
             <div class="card-header">
                 <h3>Fingerspelling Load (%)</h3>
-                <a href="4_fingerspelling_general.pdf" target="_blank" class="pdf-link">📥 PDF</a>
             </div>
             <iframe src="4_fingerspelling_general.html"></iframe>
         </div>
         <div class="card">
             <div class="card-header">
                 <h3>Vocabulary Diversity</h3>
-                <a href="5_vocabulary_general.pdf" target="_blank" class="pdf-link">📥 PDF</a>
             </div>
             <iframe src="5_vocabulary_general.html"></iframe>
         </div>
         <div class="card">
             <div class="card-header">
                 <h3>News Duration (Minutes)</h3>
-                <a href="6_duration_general.pdf" target="_blank" class="pdf-link">📥 PDF</a>
             </div>
             <iframe src="6_duration_general.html"></iframe>
+        </div>
+        
+        <!-- NEW FILES: OVERALL NLP -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Overall Distribution of Lexical Diversity (TTR)</h3>
+            </div>
+            <iframe src="overall_ttr_distribution.html"></iframe>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Overall Distribution of News Segments by Topic</h3>
+            </div>
+            <iframe src="overall_topic_distribution.html"></iframe>
         </div>
     </div>
 
     <!-- SECTION B: BROADCASTER COMPARISON -->
-    <h2>📺 Secțiunea B: Comparație pe Posturi TV</h2>
+    <h2>📺 Section B: Broadcaster Comparison</h2>
     <div class="dashboard">
         <div class="card wpm-card-tall full-width">
             <div class="card-header">
                 <h3>Speech Rate (WPM) - By Broadcaster</h3>
-                <a href="2_speech_rate_wpm.pdf" target="_blank" class="pdf-link">📥 PDF</a>
             </div>
             <iframe src="2_speech_rate_wpm.html"></iframe>
         </div>
         <div class="card">
             <div class="card-header">
                 <h3>Visual Density (CPS)</h3>
-                <a href="3_visual_density_cps.pdf" target="_blank" class="pdf-link">📥 PDF</a>
             </div>
             <iframe src="3_visual_density_cps.html"></iframe>
         </div>
         <div class="card">
             <div class="card-header">
                 <h3>Fingerspelling Load (%)</h3>
-                <a href="4_fingerspelling.pdf" target="_blank" class="pdf-link">📥 PDF</a>
             </div>
             <iframe src="4_fingerspelling.html"></iframe>
         </div>
         <div class="card">
             <div class="card-header">
                 <h3>Vocabulary Diversity</h3>
-                <a href="5_vocabulary.pdf" target="_blank" class="pdf-link">📥 PDF</a>
             </div>
             <iframe src="5_vocabulary.html"></iframe>
         </div>
         <div class="card">
             <div class="card-header">
                 <h3>News Duration (Minutes)</h3>
-                <a href="6_duration.pdf" target="_blank" class="pdf-link">📥 PDF</a>
             </div>
             <iframe src="6_duration.html"></iframe>
+        </div>
+        
+        <!-- NEW FILES: BROADCASTER NLP -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Lexical Diversity (TTR) by Broadcasting Station</h3>
+            </div>
+            <iframe src="ttr_by_broadcasting_station.html"></iframe>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Topic Distribution by Broadcasting Station</h3>
+            </div>
+            <iframe src="topics_by_broadcasting_station.html"></iframe>
+        </div>
+    </div>
+
+    <!-- SECTION C: TOPIC ANALYSIS (NEW) -->
+    <h2>📑 Section C: Topic-Level Analysis</h2>
+    <div class="dashboard">
+        <div class="card">
+            <div class="card-header">
+                <h3>Lexical Diversity (TTR) by Topic</h3>
+            </div>
+            <iframe src="ttr_by_topic.html"></iframe>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>News Segment Length by Topic</h3>
+            </div>
+            <iframe src="segment_length_by_topic.html"></iframe>
         </div>
     </div>
 
